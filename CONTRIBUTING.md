@@ -119,7 +119,7 @@ The rules that most often send a submission back: the plugin must extend Hermes 
 | **Git** | With the `git-lfs` extension installed |
 | **Python 3.14** | The project requires `>=3.14,<3.15`; PM provides the pinned interpreter |
 | **Node.js** | Use the PM pin, or a version accepted by root `package.json`: `>=26` |
-| **pnpm** | Exactly the root `package.json` `devEngines` pin; `source ./activate` provides it |
+| **pnpm** | Exactly the `pm/lock.json` pin; `source ./activate` provides it |
 
 ### PM developer environment
 
@@ -203,8 +203,8 @@ than copying production credentials into the checkout.
 ### JavaScript workspaces and website
 
 From the repository root, run `pnpm install --frozen-lockfile` for the desktop,
-TUI, dashboard, and shared JS workspaces. Root `package.json` pins pnpm in
-`devEngines` (`source ./activate` provides that exact version). Hermes's builds and
+TUI, dashboard, and shared JS workspaces. `pm/lock.json` pins pnpm
+(`source ./activate` provides that exact version). Hermes's builds and
 `hermes update` refuse any other pnpm version; a direct `pnpm install` does not check
 it. The root `preinstall` script refuses `npm install`. The website is a separate npm
 project:

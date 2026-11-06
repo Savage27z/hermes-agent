@@ -153,7 +153,7 @@ Choose the highest (least-footprint) rung that correctly solves the problem:
 | **Git**              | With the `git-lfs` extension installed                                                        |
 | **Python 3.14** | Current development uses PM's pinned interpreter. The broader `>=3.11,<3.15` package metadata keeps old updaters working, not the current runtime on older Python. |
 | **Node.js** | Use the PM pin or a version accepted by root `package.json` engines |
-| **pnpm** | Exactly the root `package.json` `devEngines` pin; `source ./activate` provides it |
+| **pnpm** | Exactly the `pm/lock.json` pin; `source ./activate` provides it |
 
 ### PM developer environment
 
@@ -225,8 +225,8 @@ than copying production credentials into the checkout.
 ### JavaScript workspaces and website
 
 From the repository root, run `pnpm install --frozen-lockfile` for the desktop,
-TUI, dashboard, and shared JS workspaces. Root `package.json` pins pnpm in
-`devEngines` (`source ./activate` provides that exact version). Hermes's builds and
+TUI, dashboard, and shared JS workspaces. `pm/lock.json` pins pnpm
+(`source ./activate` provides that exact version). Hermes's builds and
 `hermes update` refuse any other pnpm version; a direct `pnpm install` does not check
 it. The root `preinstall` script refuses `npm install`. The website is a separate npm
 project:
