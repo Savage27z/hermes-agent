@@ -441,7 +441,7 @@ pnpm --dir apps/desktop run dev
 Activation provides the pnpm version `pm/lock.json` pins.
 Hermes's builds and `hermes update` refuse any other pnpm version (a direct
 `pnpm install` does not check it), and the root `preinstall` script refuses
-`npm install` (npx and other npm commands only warn).
+`npm install`.
 
 The website is a separate npm project: `npm ci --prefix website`, then
 `npm run build:fast --prefix website`. PM activation supplies tools, not these
